@@ -3772,9 +3772,47 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                     flex: 2,
                     child: Container(
                       height: double.infinity,
-                      child: Image.asset(
-                        'assets/horse_face_outline.png',
-                        fit: BoxFit.contain,
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            'assets/horse_face_outline.png',
+                            fit: BoxFit.contain,
+                          ),
+                          Container(
+                            width: 780,
+                            height: 550,
+                            child: StackBoard(
+                              onDel: _onDel,
+                              controller: _boardController,
+                              caseStyle: const CaseStyle(
+                                buttonBorderColor: Colors.grey,
+                                buttonIconColor: Colors.grey,
+                              ),
+
+                              /// 背景
+                              // background: ColoredBox(color: Colors.grey[100]!),
+                              customBuilder: (
+                                StackItem<StackItemContent> item,
+                              ) {
+                                if (item is StackTextItem) {
+                                  return StackTextCase(item: item);
+                                } else if (item is StackDrawItem) {
+                                  return StackDrawCase(item: item);
+                                } else if (item is StackImageItem) {
+                                  return StackImageCase(item: item);
+                                } else if (item is ColorStackItem) {
+                                  return Container(
+                                    width: item.size.width,
+                                    height: item.size.height,
+                                    color: item.content?.color,
+                                  );
+                                }
+
+                                return const SizedBox.shrink();
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -3784,80 +3822,62 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
           ),
           Padding(
             padding: EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  width: 300,
-                  height: 300,
-                  child: StackBoard(
-                    onDel: _onDel,
-                    controller: _boardController,
-                    caseStyle: const CaseStyle(
-                      buttonBorderColor: Colors.grey,
-                      buttonIconColor: Colors.grey,
-                    ),
-
-                    /// 背景
-                    background: ColoredBox(color: Colors.grey[100]!),
-                    customBuilder: (StackItem<StackItemContent> item) {
-                      if (item is StackTextItem) {
-                        return StackTextCase(item: item);
-                      } else if (item is StackDrawItem) {
-                        return StackDrawCase(item: item);
-                      } else if (item is StackImageItem) {
-                        return StackImageCase(item: item);
-                      } else if (item is ColorStackItem) {
-                        return Container(
-                          width: item.size.width,
-                          height: item.size.height,
-                          color: item.content?.color,
-                        );
-                      }
-
-                      return const SizedBox.shrink();
-                    },
-                  ),
-                ),
-                Row(
-                  children: <Widget>[
-                    FloatingActionButton(
-                      onPressed: () => _boardController.clear(),
-                      child: const Icon(Icons.delete),
-                    ),
-                    _spacer,
-                    FloatingActionButton(
-                      onPressed: _getJson,
-                      child: const Icon(Icons.file_download),
-                    ),
-                    _spacer,
-                    FloatingActionButton(
-                      onPressed: _generateFromJson,
-                      child: const Icon(Icons.file_upload),
-                    ),
-                  ],
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle save and close
-                  },
-                  child: Text('Save & Close'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[300],
-                  ),
-                ),
-                SizedBox(width: 8),
-                ElevatedButton(
-                  onPressed: () {
-                    // Handle save and next
-                  },
-                  child: Text('Save & Next'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[300],
-                  ),
-                ),
+            child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                
               ],
             ),
+          ),
+        ],
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Flexible(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: <Widget>[
+                  const SizedBox(width: 25),
+                  FloatingActionButton(
+                    onPressed: _addTextItem,
+                    child: const Icon(Icons.border_color),
+                  ),
+                  _spacer,
+                  FloatingActionButton(
+                    onPressed: _addImageItem,
+                    child: const Icon(Icons.image),
+                  ),
+                  _spacer,
+                  FloatingActionButton(
+                    onPressed: _addDrawItem,
+                    child: const Icon(Icons.color_lens),
+                  ),
+                  _spacer,
+                  FloatingActionButton(
+                    onPressed: _addCustomItem,
+                    child: const Icon(Icons.add_box),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Row(
+            children: <Widget>[
+              FloatingActionButton(
+                onPressed: () => _boardController.clear(),
+                child: const Icon(Icons.delete),
+              ),
+              _spacer,
+              FloatingActionButton(
+                onPressed: _getJson,
+                child: const Icon(Icons.file_download),
+              ),
+              _spacer,
+              FloatingActionButton(
+                onPressed: _generateFromJson,
+                child: const Icon(Icons.file_upload),
+              ),
+            ],
           ),
         ],
       ),
