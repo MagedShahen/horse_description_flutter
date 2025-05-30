@@ -188,6 +188,62 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
     'inverted drop shaped',
   ];
 
+  bool rearLegMenuChecked = true;
+  bool rearLegMenuExpanded = false; // Track expansion state
+  bool rearLegStarChecked = true;
+  bool rearLegStarExpanded = false; // Track expansion state
+  String rearLegStarLinkingWordsValue = 'Contain';
+  final List<String> _rearLegStarLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String rearLegStarChoiceValue = 'pear shaped';
+  final List<String> _rearLegStarChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
+  bool rearLegWholeChecked = true;
+  bool rearLegWholeExpanded = false; // Track expansion state
+  String rearLegWholeLinkingWordsValue = 'Contain';
+  final List<String> _rearLegWholeLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String rearLegWholeChoiceValue = 'pear shaped';
+  final List<String> _rearLegWholeChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1116,8 +1172,8 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                 InkWell(
                                   onTap: () {
                                     setState(() {
-                                      muzzelMenuExpanded =
-                                          !muzzelMenuExpanded; // Toggle expansion
+                                      frontLegMenuExpanded =
+                                          !frontLegMenuExpanded; // Toggle expansion
                                     });
                                   },
                                   child: Container(
@@ -1130,19 +1186,19 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                     child: Row(
                                       children: [
                                         Checkbox(
-                                          value: muzzelMenuChecked,
+                                          value: frontLegMenuChecked,
                                           onChanged: (value) {
                                             setState(() {
-                                              muzzelMenuChecked =
+                                              frontLegMenuChecked =
                                                   value ?? false;
-                                              muzzelMenuExpanded =
-                                                  !muzzelMenuExpanded; // Toggle expansion on checkbox click
+                                              frontLegMenuExpanded =
+                                                  !frontLegMenuExpanded; // Toggle expansion on checkbox click
                                             });
                                           },
                                         ),
-                                        Expanded(child: Text('Muzzel Menu')),
+                                        Expanded(child: Text('Front leg Menu')),
                                         Icon(
-                                          muzzelMenuExpanded
+                                          frontLegMenuExpanded
                                               ? Icons.expand_less
                                               : Icons.expand_more,
                                         ),
@@ -1151,7 +1207,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                   ),
                                 ),
                                 // Expanded Box for Star
-                                if (muzzelMenuExpanded)
+                                if (frontLegMenuExpanded)
                                   Container(
                                     padding: EdgeInsets.symmetric(
                                       horizontal: 16.0,
@@ -1183,8 +1239,8 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                 InkWell(
                                                   onTap: () {
                                                     setState(() {
-                                                      muzzelStarExpanded =
-                                                          !muzzelStarExpanded; // Toggle expansion
+                                                      frontLegStarExpanded =
+                                                          !frontLegStarExpanded; // Toggle expansion
                                                     });
                                                   },
                                                   child: Container(
@@ -1198,14 +1254,14 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                       children: [
                                                         Checkbox(
                                                           value:
-                                                              muzzelStarChecked,
+                                                              frontLegStarChecked,
                                                           onChanged: (value) {
                                                             setState(() {
-                                                              muzzelStarChecked =
+                                                              frontLegStarChecked =
                                                                   value ??
                                                                   false;
-                                                              muzzelStarExpanded =
-                                                                  !muzzelStarExpanded; // Toggle expansion on checkbox click
+                                                              frontLegStarExpanded =
+                                                                  !frontLegStarExpanded; // Toggle expansion on checkbox click
                                                             });
                                                           },
                                                         ),
@@ -1213,7 +1269,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                           child: Text('Star'),
                                                         ),
                                                         Icon(
-                                                          muzzelStarExpanded
+                                                          frontLegStarExpanded
                                                               ? Icons
                                                                   .expand_less
                                                               : Icons
@@ -1224,7 +1280,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                   ),
                                                 ),
                                                 // Expanded Box for Star
-                                                if (muzzelStarExpanded)
+                                                if (frontLegStarExpanded)
                                                   Container(
                                                     padding:
                                                         EdgeInsets.symmetric(
@@ -1255,15 +1311,15 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                         ),
                                                         DropdownButton<String>(
                                                           value:
-                                                              _muzzelStarLinkingWordsItems
+                                                              _frontLegStarLinkingWordsItems
                                                                       .contains(
-                                                                        muzzelStarLinkingWordsValue,
+                                                                        frontLegStarLinkingWordsValue,
                                                                       )
-                                                                  ? muzzelStarLinkingWordsValue
+                                                                  ? frontLegStarLinkingWordsValue
                                                                   : null,
                                                           isExpanded: true,
                                                           items:
-                                                              _muzzelStarLinkingWordsItems.map((
+                                                              _frontLegStarLinkingWordsItems.map((
                                                                 String value,
                                                               ) {
                                                                 return DropdownMenuItem<
@@ -1277,7 +1333,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                               }).toList(),
                                                           onChanged: (value) {
                                                             setState(() {
-                                                              muzzelStarLinkingWordsValue =
+                                                              frontLegStarLinkingWordsValue =
                                                                   value ?? '';
                                                             });
                                                           },
@@ -1305,15 +1361,15 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                         ),
                                                         DropdownButton<String>(
                                                           value:
-                                                              _muzzelStarChoiceWordsItems
+                                                              _frontLegStarChoiceWordsItems
                                                                       .contains(
-                                                                        muzzelStarChoiceValue,
+                                                                        frontLegStarChoiceValue,
                                                                       )
                                                                   ? starChoiceValue
                                                                   : null,
                                                           isExpanded: true,
                                                           items:
-                                                              _muzzelStarChoiceWordsItems.map((
+                                                              _frontLegStarChoiceWordsItems.map((
                                                                 String value,
                                                               ) {
                                                                 return DropdownMenuItem<
@@ -1327,7 +1383,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                               }).toList(),
                                                           onChanged: (value) {
                                                             setState(() {
-                                                              muzzelStarChoiceValue =
+                                                              frontLegStarChoiceValue =
                                                                   value ?? '';
                                                             });
                                                           },
@@ -1364,8 +1420,8 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                 InkWell(
                                                   onTap: () {
                                                     setState(() {
-                                                      muzzelWholeExpanded =
-                                                          !muzzelWholeExpanded; // Toggle expansion
+                                                      frontLegWholeExpanded =
+                                                          !frontLegWholeExpanded; // Toggle expansion
                                                     });
                                                   },
                                                   child: Container(
@@ -1379,14 +1435,14 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                       children: [
                                                         Checkbox(
                                                           value:
-                                                              muzzelWholeChecked,
+                                                              frontLegWholeChecked,
                                                           onChanged: (value) {
                                                             setState(() {
-                                                              muzzelWholeChecked =
+                                                              frontLegWholeChecked =
                                                                   value ??
                                                                   false;
-                                                              muzzelWholeExpanded =
-                                                                  !muzzelWholeExpanded; // Toggle expansion on checkbox click
+                                                              frontLegWholeExpanded =
+                                                                  !frontLegWholeExpanded; // Toggle expansion on checkbox click
                                                             });
                                                           },
                                                         ),
@@ -1394,7 +1450,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                           child: Text('Whole'),
                                                         ),
                                                         Icon(
-                                                          muzzelWholeExpanded
+                                                          frontLegWholeExpanded
                                                               ? Icons
                                                                   .expand_less
                                                               : Icons
@@ -1405,7 +1461,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                   ),
                                                 ),
                                                 // Expanded Box for Star
-                                                if (muzzelWholeExpanded)
+                                                if (frontLegWholeExpanded)
                                                   Container(
                                                     padding:
                                                         EdgeInsets.symmetric(
@@ -1436,15 +1492,15 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                         ),
                                                         DropdownButton<String>(
                                                           value:
-                                                              _muzzelWholeLinkingWordsItems
+                                                              _frontLegWholeLinkingWordsItems
                                                                       .contains(
-                                                                        muzzelWholeLinkingWordsValue,
+                                                                        frontLegWholeLinkingWordsValue,
                                                                       )
-                                                                  ? muzzelWholeLinkingWordsValue
+                                                                  ? frontLegWholeLinkingWordsValue
                                                                   : null,
                                                           isExpanded: true,
                                                           items:
-                                                              _muzzelWholeLinkingWordsItems.map((
+                                                              _frontLegWholeLinkingWordsItems.map((
                                                                 String value,
                                                               ) {
                                                                 return DropdownMenuItem<
@@ -1458,7 +1514,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                               }).toList(),
                                                           onChanged: (value) {
                                                             setState(() {
-                                                              muzzelWholeLinkingWordsValue =
+                                                              frontLegWholeLinkingWordsValue =
                                                                   value ?? '';
                                                             });
                                                           },
@@ -1486,15 +1542,15 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                         ),
                                                         DropdownButton<String>(
                                                           value:
-                                                              _muzzelWholeChoiceWordsItems
+                                                              _frontLegWholeChoiceWordsItems
                                                                       .contains(
-                                                                        muzzelWholeChoiceValue,
+                                                                        frontLegWholeChoiceValue,
                                                                       )
-                                                                  ? muzzelWholeChoiceValue
+                                                                  ? frontLegWholeChoiceValue
                                                                   : null,
                                                           isExpanded: true,
                                                           items:
-                                                              _muzzelWholeChoiceWordsItems.map((
+                                                              _frontLegWholeChoiceWordsItems.map((
                                                                 String value,
                                                               ) {
                                                                 return DropdownMenuItem<
@@ -1508,7 +1564,438 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                               }).toList(),
                                                           onChanged: (value) {
                                                             setState(() {
-                                                              muzzelWholeChoiceValue =
+                                                              frontLegWholeChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        // rear leg menu with Expandable Box
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color.fromARGB(255, 203, 226, 246),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                8,
+                              ), // Optional rounded corners
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      rearLegMenuExpanded =
+                                          !rearLegMenuExpanded; // Toggle expansion
+                                    });
+                                  },
+                                  child: Container(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      232,
+                                      238,
+                                      243,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Checkbox(
+                                          value: rearLegMenuChecked,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              rearLegMenuChecked =
+                                                  value ?? false;
+                                              rearLegMenuExpanded =
+                                                  !frontLegMenuExpanded; // Toggle expansion on checkbox click
+                                            });
+                                          },
+                                        ),
+                                        Expanded(child: Text('Rear leg Menu')),
+                                        Icon(
+                                          rearLegMenuExpanded
+                                              ? Icons.expand_less
+                                              : Icons.expand_more,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                // Expanded Box for Star
+                                if (rearLegMenuExpanded)
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16.0,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      rearLegStarExpanded =
+                                                          !rearLegStarExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              rearLegStarChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              rearLegStarChecked =
+                                                                  value ??
+                                                                  false;
+                                                              rearLegStarExpanded =
+                                                                  !rearLegStarExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Star'),
+                                                        ),
+                                                        Icon(
+                                                          rearLegStarExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (rearLegStarExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _rearLegStarLinkingWordsItems
+                                                                      .contains(
+                                                                        rearLegStarLinkingWordsValue,
+                                                                      )
+                                                                  ? rearLegStarLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _rearLegStarLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              rearLegStarLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _rearLegStarChoiceWordsItems
+                                                                      .contains(
+                                                                        rearLegStarChoiceValue,
+                                                                      )
+                                                                  ? starChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _rearLegStarChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              rearLegStarChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      rearLegWholeExpanded =
+                                                          !rearLegWholeExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              rearLegWholeChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              rearLegWholeChecked =
+                                                                  value ??
+                                                                  false;
+                                                              rearLegWholeExpanded =
+                                                                  !rearLegWholeExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Whole'),
+                                                        ),
+                                                        Icon(
+                                                          rearLegWholeExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (rearLegWholeExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _rearLegWholeLinkingWordsItems
+                                                                      .contains(
+                                                                        rearLegWholeLinkingWordsValue,
+                                                                      )
+                                                                  ? rearLegWholeLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _rearLegWholeLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              rearLegWholeLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _rearLegWholeChoiceWordsItems
+                                                                      .contains(
+                                                                        rearLegWholeChoiceValue,
+                                                                      )
+                                                                  ? rearLegWholeChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _rearLegWholeChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              rearLegWholeChoiceValue =
                                                                   value ?? '';
                                                             });
                                                           },
