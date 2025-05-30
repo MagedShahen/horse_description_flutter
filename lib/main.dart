@@ -76,6 +76,118 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
     'inverted drop shaped',
   ];
 
+  bool muzzelMenuChecked = true;
+  bool muzzelMenuExpanded = false; // Track expansion state
+  bool muzzelStarChecked = true;
+  bool muzzelStarExpanded = false; // Track expansion state
+  String muzzelStarLinkingWordsValue = 'Contain';
+  final List<String> _muzzelStarLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String muzzelStarChoiceValue = 'pear shaped';
+  final List<String> _muzzelStarChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
+  bool muzzelWholeChecked = true;
+  bool muzzelWholeExpanded = false; // Track expansion state
+  String muzzelWholeLinkingWordsValue = 'Contain';
+  final List<String> _muzzelWholeLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String muzzelWholeChoiceValue = 'pear shaped';
+  final List<String> _muzzelWholeChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
+  bool frontLegMenuChecked = true;
+  bool frontLegMenuExpanded = false; // Track expansion state
+  bool frontLegStarChecked = true;
+  bool frontLegStarExpanded = false; // Track expansion state
+  String frontLegStarLinkingWordsValue = 'Contain';
+  final List<String> _frontLegStarLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String frontLegStarChoiceValue = 'pear shaped';
+  final List<String> _frontLegStarChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
+  bool frontLegWholeChecked = true;
+  bool frontLegWholeExpanded = false; // Track expansion state
+  String frontLegWholeLinkingWordsValue = 'Contain';
+  final List<String> _frontLegWholeLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String frontLegWholeChoiceValue = 'pear shaped';
+  final List<String> _frontLegWholeChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -546,6 +658,75 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                             ),
                                           ),
                                         ),
+                                      ],
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        // Muzzel menu with Expandable Box
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color.fromARGB(255, 203, 226, 246),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                8,
+                              ), // Optional rounded corners
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      muzzelMenuExpanded =
+                                          !muzzelMenuExpanded; // Toggle expansion
+                                    });
+                                  },
+                                  child: Container(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      232,
+                                      238,
+                                      243,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Checkbox(
+                                          value: muzzelMenuChecked,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              muzzelMenuChecked =
+                                                  value ?? false;
+                                              muzzelMenuExpanded =
+                                                  !muzzelMenuExpanded; // Toggle expansion on checkbox click
+                                            });
+                                          },
+                                        ),
+                                        Expanded(child: Text('Muzzel Menu')),
+                                        Icon(
+                                          muzzelMenuExpanded
+                                              ? Icons.expand_less
+                                              : Icons.expand_more,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                // Expanded Box for Star
+                                if (muzzelMenuExpanded)
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16.0,
+                                    ),
+                                    child: Column(
+                                      children: [
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Container(
@@ -571,8 +752,8 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                 InkWell(
                                                   onTap: () {
                                                     setState(() {
-                                                      starExpanded =
-                                                          !starExpanded; // Toggle expansion
+                                                      muzzelStarExpanded =
+                                                          !muzzelStarExpanded; // Toggle expansion
                                                     });
                                                   },
                                                   child: Container(
@@ -585,14 +766,15 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                     child: Row(
                                                       children: [
                                                         Checkbox(
-                                                          value: starChecked,
+                                                          value:
+                                                              muzzelStarChecked,
                                                           onChanged: (value) {
                                                             setState(() {
-                                                              starChecked =
+                                                              muzzelStarChecked =
                                                                   value ??
                                                                   false;
-                                                              starExpanded =
-                                                                  !starExpanded; // Toggle expansion on checkbox click
+                                                              muzzelStarExpanded =
+                                                                  !muzzelStarExpanded; // Toggle expansion on checkbox click
                                                             });
                                                           },
                                                         ),
@@ -600,7 +782,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                           child: Text('Star'),
                                                         ),
                                                         Icon(
-                                                          starExpanded
+                                                          muzzelStarExpanded
                                                               ? Icons
                                                                   .expand_less
                                                               : Icons
@@ -611,7 +793,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                   ),
                                                 ),
                                                 // Expanded Box for Star
-                                                if (starExpanded)
+                                                if (muzzelStarExpanded)
                                                   Container(
                                                     padding:
                                                         EdgeInsets.symmetric(
@@ -642,15 +824,15 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                         ),
                                                         DropdownButton<String>(
                                                           value:
-                                                              _starLinkingWordsItems
+                                                              _muzzelStarLinkingWordsItems
                                                                       .contains(
-                                                                        starLinkingWordsValue,
+                                                                        muzzelStarLinkingWordsValue,
                                                                       )
-                                                                  ? starLinkingWordsValue
+                                                                  ? muzzelStarLinkingWordsValue
                                                                   : null,
                                                           isExpanded: true,
                                                           items:
-                                                              _starLinkingWordsItems.map((
+                                                              _muzzelStarLinkingWordsItems.map((
                                                                 String value,
                                                               ) {
                                                                 return DropdownMenuItem<
@@ -664,7 +846,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                               }).toList(),
                                                           onChanged: (value) {
                                                             setState(() {
-                                                              starLinkingWordsValue =
+                                                              muzzelStarLinkingWordsValue =
                                                                   value ?? '';
                                                             });
                                                           },
@@ -692,15 +874,15 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                         ),
                                                         DropdownButton<String>(
                                                           value:
-                                                              _starChoiceWordsItems
+                                                              _muzzelStarChoiceWordsItems
                                                                       .contains(
-                                                                        starChoiceValue,
+                                                                        muzzelStarChoiceValue,
                                                                       )
                                                                   ? starChoiceValue
                                                                   : null,
                                                           isExpanded: true,
                                                           items:
-                                                              _starChoiceWordsItems.map((
+                                                              _muzzelStarChoiceWordsItems.map((
                                                                 String value,
                                                               ) {
                                                                 return DropdownMenuItem<
@@ -714,7 +896,188 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                               }).toList(),
                                                           onChanged: (value) {
                                                             setState(() {
-                                                              starChoiceValue =
+                                                              muzzelStarChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      muzzelWholeExpanded =
+                                                          !muzzelWholeExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              muzzelWholeChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              muzzelWholeChecked =
+                                                                  value ??
+                                                                  false;
+                                                              muzzelWholeExpanded =
+                                                                  !muzzelWholeExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Whole'),
+                                                        ),
+                                                        Icon(
+                                                          muzzelWholeExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (muzzelWholeExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _muzzelWholeLinkingWordsItems
+                                                                      .contains(
+                                                                        muzzelWholeLinkingWordsValue,
+                                                                      )
+                                                                  ? muzzelWholeLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _muzzelWholeLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              muzzelWholeLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _muzzelWholeChoiceWordsItems
+                                                                      .contains(
+                                                                        muzzelWholeChoiceValue,
+                                                                      )
+                                                                  ? muzzelWholeChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _muzzelWholeChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              muzzelWholeChoiceValue =
                                                                   value ?? '';
                                                             });
                                                           },
@@ -734,9 +1097,436 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                           ),
                         ),
 
-                        // Star Checkbox with Expandable Box
-
-                        // Other Checkboxes and Dropdowns
+                        // front leg menu with Expandable Box
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color.fromARGB(255, 203, 226, 246),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                8,
+                              ), // Optional rounded corners
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      muzzelMenuExpanded =
+                                          !muzzelMenuExpanded; // Toggle expansion
+                                    });
+                                  },
+                                  child: Container(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      232,
+                                      238,
+                                      243,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Checkbox(
+                                          value: muzzelMenuChecked,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              muzzelMenuChecked =
+                                                  value ?? false;
+                                              muzzelMenuExpanded =
+                                                  !muzzelMenuExpanded; // Toggle expansion on checkbox click
+                                            });
+                                          },
+                                        ),
+                                        Expanded(child: Text('Muzzel Menu')),
+                                        Icon(
+                                          muzzelMenuExpanded
+                                              ? Icons.expand_less
+                                              : Icons.expand_more,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                // Expanded Box for Star
+                                if (muzzelMenuExpanded)
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16.0,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      muzzelStarExpanded =
+                                                          !muzzelStarExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              muzzelStarChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              muzzelStarChecked =
+                                                                  value ??
+                                                                  false;
+                                                              muzzelStarExpanded =
+                                                                  !muzzelStarExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Star'),
+                                                        ),
+                                                        Icon(
+                                                          muzzelStarExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (muzzelStarExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _muzzelStarLinkingWordsItems
+                                                                      .contains(
+                                                                        muzzelStarLinkingWordsValue,
+                                                                      )
+                                                                  ? muzzelStarLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _muzzelStarLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              muzzelStarLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _muzzelStarChoiceWordsItems
+                                                                      .contains(
+                                                                        muzzelStarChoiceValue,
+                                                                      )
+                                                                  ? starChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _muzzelStarChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              muzzelStarChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      muzzelWholeExpanded =
+                                                          !muzzelWholeExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              muzzelWholeChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              muzzelWholeChecked =
+                                                                  value ??
+                                                                  false;
+                                                              muzzelWholeExpanded =
+                                                                  !muzzelWholeExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Whole'),
+                                                        ),
+                                                        Icon(
+                                                          muzzelWholeExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (muzzelWholeExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _muzzelWholeLinkingWordsItems
+                                                                      .contains(
+                                                                        muzzelWholeLinkingWordsValue,
+                                                                      )
+                                                                  ? muzzelWholeLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _muzzelWholeLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              muzzelWholeLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _muzzelWholeChoiceWordsItems
+                                                                      .contains(
+                                                                        muzzelWholeChoiceValue,
+                                                                      )
+                                                                  ? muzzelWholeChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _muzzelWholeChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              muzzelWholeChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
