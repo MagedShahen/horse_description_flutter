@@ -3775,6 +3775,8 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                       child: Stack(
                         children: [
                           Image.asset(
+                            width: 780,
+                            height: 550,
                             'assets/horse_face_outline.png',
                             fit: BoxFit.contain,
                           ),
@@ -3797,7 +3799,14 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                 if (item is StackTextItem) {
                                   return StackTextCase(item: item);
                                 } else if (item is StackDrawItem) {
-                                  return StackDrawCase(item: item);
+                                  return StackDrawCase(
+                                    item: item,
+                                    background: Container(
+                                      width: 780,
+                                      height: 550,
+                                      color: Colors.transparent,
+                                    ),
+                                  );
                                 } else if (item is StackImageItem) {
                                   return StackImageCase(item: item);
                                 } else if (item is ColorStackItem) {
