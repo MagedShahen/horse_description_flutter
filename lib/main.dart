@@ -76,6 +76,8 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
     'inverted drop shaped',
   ];
 
+  // Muzzle Section
+
   bool muzzelMenuChecked = true;
   bool muzzelMenuExpanded = false; // Track expansion state
   bool muzzelStarChecked = true;
@@ -131,6 +133,8 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
     'heart shaped',
     'inverted drop shaped',
   ];
+
+  // Front Leg Section
 
   bool frontLegMenuChecked = true;
   bool frontLegMenuExpanded = false; // Track expansion state
@@ -188,6 +192,8 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
     'inverted drop shaped',
   ];
 
+  // Rear Leg Section
+
   bool rearLegMenuChecked = true;
   bool rearLegMenuExpanded = false; // Track expansion state
   bool rearLegStarChecked = true;
@@ -229,6 +235,122 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
   ];
   String rearLegWholeChoiceValue = 'pear shaped';
   final List<String> _rearLegWholeChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
+  // Body right Section
+
+  bool bodyRightMenuChecked = true;
+  bool bodyRightMenuExpanded = false; // Track expansion state
+  bool bodyRightStarChecked = true;
+  bool bodyRightStarExpanded = false; // Track expansion state
+  String bodyRightStarLinkingWordsValue = 'Contain';
+  final List<String> _bodyRightStarLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String bodyRightStarChoiceValue = 'pear shaped';
+  final List<String> _bodyRightStarChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
+  bool bodyRightWholeChecked = true;
+  bool bodyRightWholeExpanded = false; // Track expansion state
+  String bodyRightWholeLinkingWordsValue = 'Contain';
+  final List<String> _bodyRightWholeLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String bodyRightWholeChoiceValue = 'pear shaped';
+  final List<String> _bodyRightWholeChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
+  // Body left Section
+
+  bool bodyLeftMenuChecked = true;
+  bool bodyLeftMenuExpanded = false; // Track expansion state
+  bool bodyRightStarChecked = true;
+  bool bodyRightStarExpanded = false; // Track expansion state
+  String bodyRightStarLinkingWordsValue = 'Contain';
+  final List<String> _bodyRightStarLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String bodyRightStarChoiceValue = 'pear shaped';
+  final List<String> _bodyRightStarChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
+  bool bodyRightWholeChecked = true;
+  bool bodyRightWholeExpanded = false; // Track expansion state
+  String bodyRightWholeLinkingWordsValue = 'Contain';
+  final List<String> _bodyRightWholeLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String bodyRightWholeChoiceValue = 'pear shaped';
+  final List<String> _bodyRightWholeChoiceWordsItems = [
     'cresent shaped',
     'daimoned shaped',
     'pear shaped',
@@ -1153,7 +1275,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                           ),
                         ),
 
-                        // front leg menu with Expandable Box
+                        // Front leg menu with Expandable Box
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
@@ -1584,7 +1706,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                           ),
                         ),
 
-                        // rear leg menu with Expandable Box
+                        // Rear leg menu with Expandable Box
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
@@ -1996,6 +2118,439 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                           onChanged: (value) {
                                                             setState(() {
                                                               rearLegWholeChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        // Body right menu with Expandable Box
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color.fromARGB(255, 203, 226, 246),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                8,
+                              ), // Optional rounded corners
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      bodyRightMenuExpanded =
+                                          !bodyRightMenuExpanded; // Toggle expansion
+                                    });
+                                  },
+                                  child: Container(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      232,
+                                      238,
+                                      243,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Checkbox(
+                                          value: bodyRightMenuChecked,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              bodyRightMenuChecked =
+                                                  value ?? false;
+                                              bodyRightMenuExpanded =
+                                                  !bodyRightMenuExpanded; // Toggle expansion on checkbox click
+                                            });
+                                          },
+                                        ),
+                                        Expanded(
+                                          child: Text('Body right Menu'),
+                                        ),
+                                        Icon(
+                                          bodyRightMenuExpanded
+                                              ? Icons.expand_less
+                                              : Icons.expand_more,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                // Expanded Box for Star
+                                if (bodyRightMenuExpanded)
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16.0,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      bodyRightStarExpanded =
+                                                          !bodyRightStarExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              bodyRightStarChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyRightStarChecked =
+                                                                  value ??
+                                                                  false;
+                                                              bodyRightStarExpanded =
+                                                                  !bodyRightStarExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Star'),
+                                                        ),
+                                                        Icon(
+                                                          bodyRightStarExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (bodyRightStarExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _bodyRightStarLinkingWordsItems
+                                                                      .contains(
+                                                                        bodyRightStarLinkingWordsValue,
+                                                                      )
+                                                                  ? bodyRightStarLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _bodyRightStarLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyRightStarLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _bodyRightStarChoiceWordsItems
+                                                                      .contains(
+                                                                        bodyRightStarChoiceValue,
+                                                                      )
+                                                                  ? starChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _bodyRightStarChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyRightStarChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      bodyRightWholeExpanded =
+                                                          !bodyRightWholeExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              bodyRightWholeChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyRightWholeChecked =
+                                                                  value ??
+                                                                  false;
+                                                              bodyRightWholeExpanded =
+                                                                  !bodyRightWholeExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Whole'),
+                                                        ),
+                                                        Icon(
+                                                          bodyRightWholeExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (bodyRightWholeExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _bodyRightWholeLinkingWordsItems
+                                                                      .contains(
+                                                                        bodyRightWholeLinkingWordsValue,
+                                                                      )
+                                                                  ? bodyRightWholeLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _bodyRightWholeLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyRightWholeLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _bodyRightWholeChoiceWordsItems
+                                                                      .contains(
+                                                                        bodyRightWholeChoiceValue,
+                                                                      )
+                                                                  ? bodyRightWholeChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _bodyRightWholeChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyRightWholeChoiceValue =
                                                                   value ?? '';
                                                             });
                                                           },
