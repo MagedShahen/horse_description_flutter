@@ -742,6 +742,7 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
               ],
             ),
           ),
+
           Expanded(
             child: Padding(
               padding: EdgeInsets.all(16.0),
@@ -3786,7 +3787,9 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Expanded(
+                Container(
+                  width: 300,
+                  height: 300,
                   child: StackBoard(
                     onDel: _onDel,
                     controller: _boardController,
