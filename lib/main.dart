@@ -312,18 +312,18 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
 
   bool bodyLeftMenuChecked = true;
   bool bodyLeftMenuExpanded = false; // Track expansion state
-  bool bodyRightStarChecked = true;
-  bool bodyRightStarExpanded = false; // Track expansion state
-  String bodyRightStarLinkingWordsValue = 'Contain';
-  final List<String> _bodyRightStarLinkingWordsItems = [
+  bool bodyLeftStarChecked = true;
+  bool bodyLeftStarExpanded = false; // Track expansion state
+  String bodyLeftStarLinkingWordsValue = 'Contain';
+  final List<String> _bodyLeftStarLinkingWordsItems = [
     'Contain',
     'Tangent',
     'At Base',
     'To Right',
     'To Left',
   ];
-  String bodyRightStarChoiceValue = 'pear shaped';
-  final List<String> _bodyRightStarChoiceWordsItems = [
+  String bodyLeftStarChoiceValue = 'pear shaped';
+  final List<String> _bodyLeftStarChoiceWordsItems = [
     'cresent shaped',
     'daimoned shaped',
     'pear shaped',
@@ -339,18 +339,76 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
     'inverted drop shaped',
   ];
 
-  bool bodyRightWholeChecked = true;
-  bool bodyRightWholeExpanded = false; // Track expansion state
-  String bodyRightWholeLinkingWordsValue = 'Contain';
-  final List<String> _bodyRightWholeLinkingWordsItems = [
+  bool bodyLeftWholeChecked = true;
+  bool bodyLeftWholeExpanded = false; // Track expansion state
+  String bodyLeftWholeLinkingWordsValue = 'Contain';
+  final List<String> _bodyLeftWholeLinkingWordsItems = [
     'Contain',
     'Tangent',
     'At Base',
     'To Right',
     'To Left',
   ];
-  String bodyRightWholeChoiceValue = 'pear shaped';
-  final List<String> _bodyRightWholeChoiceWordsItems = [
+  String bodyLeftWholeChoiceValue = 'pear shaped';
+  final List<String> _bodyLeftWholeChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
+  // Neck Section
+
+  bool neckMenuChecked = true;
+  bool neckMenuExpanded = false; // Track expansion state
+  bool neckStarChecked = true;
+  bool neckStarExpanded = false; // Track expansion state
+  String neckStarLinkingWordsValue = 'Contain';
+  final List<String> _neckStarLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String neckStarChoiceValue = 'pear shaped';
+  final List<String> _neckStarChoiceWordsItems = [
+    'cresent shaped',
+    'daimoned shaped',
+    'pear shaped',
+    'flam shaped',
+    'small star',
+    'large star',
+    'shealed shaped',
+    'mixed border star',
+    'irregular mixed border star',
+    'irregular star',
+    'circular shaped',
+    'heart shaped',
+    'inverted drop shaped',
+  ];
+
+  bool neckWholeChecked = true;
+  bool neckWholeExpanded = false; // Track expansion state
+  String neckWholeLinkingWordsValue = 'Contain';
+  final List<String> _neckWholeLinkingWordsItems = [
+    'Contain',
+    'Tangent',
+    'At Base',
+    'To Right',
+    'To Left',
+  ];
+  String neckWholeChoiceValue = 'pear shaped';
+  final List<String> _neckWholeChoiceWordsItems = [
     'cresent shaped',
     'daimoned shaped',
     'pear shaped',
@@ -2551,6 +2609,866 @@ class _HorseMarkingScreenState extends State<HorseMarkingScreen> {
                                                           onChanged: (value) {
                                                             setState(() {
                                                               bodyRightWholeChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        // Body left menu with Expandable Box
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color.fromARGB(255, 203, 226, 246),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                8,
+                              ), // Optional rounded corners
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      bodyLeftMenuExpanded =
+                                          !bodyLeftMenuExpanded; // Toggle expansion
+                                    });
+                                  },
+                                  child: Container(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      232,
+                                      238,
+                                      243,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Checkbox(
+                                          value: bodyLeftMenuChecked,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              bodyLeftMenuChecked =
+                                                  value ?? false;
+                                              bodyLeftMenuExpanded =
+                                                  !bodyLeftMenuExpanded; // Toggle expansion on checkbox click
+                                            });
+                                          },
+                                        ),
+                                        Expanded(child: Text('Body left Menu')),
+                                        Icon(
+                                          bodyLeftMenuExpanded
+                                              ? Icons.expand_less
+                                              : Icons.expand_more,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                // Expanded Box for Star
+                                if (bodyLeftMenuExpanded)
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16.0,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      bodyLeftStarExpanded =
+                                                          !bodyLeftStarExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              bodyLeftStarChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyLeftStarChecked =
+                                                                  value ??
+                                                                  false;
+                                                              bodyLeftStarExpanded =
+                                                                  !bodyLeftStarExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Star'),
+                                                        ),
+                                                        Icon(
+                                                          bodyLeftStarExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (bodyLeftStarExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _bodyLeftStarLinkingWordsItems
+                                                                      .contains(
+                                                                        bodyLeftStarLinkingWordsValue,
+                                                                      )
+                                                                  ? bodyLeftStarLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _bodyLeftStarLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyLeftStarLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _bodyLeftStarChoiceWordsItems
+                                                                      .contains(
+                                                                        bodyLeftStarChoiceValue,
+                                                                      )
+                                                                  ? starChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _bodyLeftStarChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyLeftStarChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      bodyLeftWholeExpanded =
+                                                          !bodyLeftWholeExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              bodyLeftWholeChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyLeftWholeChecked =
+                                                                  value ??
+                                                                  false;
+                                                              bodyLeftWholeExpanded =
+                                                                  !bodyLeftWholeExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Whole'),
+                                                        ),
+                                                        Icon(
+                                                          bodyLeftWholeExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (bodyLeftWholeExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _bodyLeftWholeLinkingWordsItems
+                                                                      .contains(
+                                                                        bodyLeftWholeLinkingWordsValue,
+                                                                      )
+                                                                  ? bodyLeftWholeLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _bodyLeftWholeLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyLeftWholeLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _bodyLeftWholeChoiceWordsItems
+                                                                      .contains(
+                                                                        bodyLeftWholeChoiceValue,
+                                                                      )
+                                                                  ? bodyLeftWholeChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _bodyLeftWholeChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              bodyLeftWholeChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        // Neck menu with Expandable Box
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color.fromARGB(255, 203, 226, 246),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                8,
+                              ), // Optional rounded corners
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      neckMenuExpanded =
+                                          !neckMenuExpanded; // Toggle expansion
+                                    });
+                                  },
+                                  child: Container(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      232,
+                                      238,
+                                      243,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Checkbox(
+                                          value: neckMenuChecked,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              neckMenuChecked = value ?? false;
+                                              neckMenuExpanded =
+                                                  !neckMenuExpanded; // Toggle expansion on checkbox click
+                                            });
+                                          },
+                                        ),
+                                        Expanded(child: Text('Neck Menu')),
+                                        Icon(
+                                          neckMenuExpanded
+                                              ? Icons.expand_less
+                                              : Icons.expand_more,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                // Expanded Box for Star
+                                if (neckMenuExpanded)
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16.0,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      neckStarExpanded =
+                                                          !neckStarExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              neckStarChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              neckStarChecked =
+                                                                  value ??
+                                                                  false;
+                                                              neckStarExpanded =
+                                                                  !neckStarExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Star'),
+                                                        ),
+                                                        Icon(
+                                                          neckStarExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (neckStarExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _neckStarLinkingWordsItems
+                                                                      .contains(
+                                                                        neckStarLinkingWordsValue,
+                                                                      )
+                                                                  ? neckStarLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _neckStarLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              neckStarLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _neckStarChoiceWordsItems
+                                                                      .contains(
+                                                                        neckStarChoiceValue,
+                                                                      )
+                                                                  ? starChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _neckStarChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              neckStarChoiceValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  203,
+                                                  226,
+                                                  246,
+                                                ),
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                    8,
+                                                  ), // Optional rounded corners
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      neckWholeExpanded =
+                                                          !neckWholeExpanded; // Toggle expansion
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    color: const Color.fromARGB(
+                                                      255,
+                                                      232,
+                                                      238,
+                                                      243,
+                                                    ),
+                                                    child: Row(
+                                                      children: [
+                                                        Checkbox(
+                                                          value:
+                                                              neckWholeChecked,
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              neckWholeChecked =
+                                                                  value ??
+                                                                  false;
+                                                              neckWholeExpanded =
+                                                                  !neckWholeExpanded; // Toggle expansion on checkbox click
+                                                            });
+                                                          },
+                                                        ),
+                                                        Expanded(
+                                                          child: Text('Whole'),
+                                                        ),
+                                                        Icon(
+                                                          neckWholeExpanded
+                                                              ? Icons
+                                                                  .expand_less
+                                                              : Icons
+                                                                  .expand_more,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // Expanded Box for Star
+                                                if (neckWholeExpanded)
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                          horizontal: 16.0,
+                                                        ),
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Linking Words',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _neckWholeLinkingWordsItems
+                                                                      .contains(
+                                                                        neckWholeLinkingWordsValue,
+                                                                      )
+                                                                  ? neckWholeLinkingWordsValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _neckWholeLinkingWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              neckWholeLinkingWordsValue =
+                                                                  value ?? '';
+                                                            });
+                                                          },
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.only(
+                                                                top: 10,
+                                                              ),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Choice',
+                                                                style:
+                                                                    TextStyle(
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        DropdownButton<String>(
+                                                          value:
+                                                              _neckWholeChoiceWordsItems
+                                                                      .contains(
+                                                                        neckWholeChoiceValue,
+                                                                      )
+                                                                  ? neckWholeChoiceValue
+                                                                  : null,
+                                                          isExpanded: true,
+                                                          items:
+                                                              _neckWholeChoiceWordsItems.map((
+                                                                String value,
+                                                              ) {
+                                                                return DropdownMenuItem<
+                                                                  String
+                                                                >(
+                                                                  value: value,
+                                                                  child: Text(
+                                                                    value,
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                          onChanged: (value) {
+                                                            setState(() {
+                                                              neckWholeChoiceValue =
                                                                   value ?? '';
                                                             });
                                                           },
